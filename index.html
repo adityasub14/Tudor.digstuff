@@ -390,14 +390,13 @@
   <h2>Menu</h2>
   <a href="#" class="active"><i class="fa-solid fa-house"></i> Home</a>
   <a href="#" onclick="scrollToProducts()"><i class="fa-solid fa-box"></i> Produk</a>
-  <a href="#" onclick="openLink('https://wa.me/6282125017327','Kontak')"><i class="fa-solid fa-comment-dots"></i> Kontak</a>
   <a href="#" onclick="openReport()"><i class="fa-solid fa-flag"></i> Laporkan Masalah</a>
 </nav>
 
 <!-- Cart Drawer -->
 <aside class="cart-drawer" id="cartDrawer">
   <div class="cart-head">
-    <h2>Keranjang Saya</h2>
+    <h2>Keranjang</h2>
     <button class="icon-btn" id="closeCart"><i class="fa-solid fa-xmark"></i></button>
   </div>
   <div class="cart-items" id="cartItems"></div>
@@ -452,19 +451,19 @@
 <div class="toast-wrap" id="toastWrap"></div>
 
 <script>
-/* ===================== DATA ===================== */
+/* =========== DATA ===================== */
 const PRODUCTS = [
   {id:4,cat:'Product',title:'Cek Non-Followback akun ig',price:10000,img:'unfollow.jpeg',desc:'Menggunakan File JSON yang di import dari akunmu '},
-  {id:13,cat:'template',title:'On Progress',price:500,img:'inprogres.jpeg',desc:'Available end of sept',free:true},
+  {id:13,cat:'Product',title:'Deteksi keamanan akun Ig',price:123,img:'ceh.jpeg',desc:'Deteksi Keamanan ID dan akun'},
   {id:14,cat:'bundle',title:'On Progress',price:500,img:'inprogres.jpeg',desc:'Available end of sept'}
 ];
 
 const fmt = n => n===0 ? 'Gratis' : 'Rp ' + n.toLocaleString('id-ID');
 
-/* ===================== TESTIMONIALS (ganti dengan testimoni asli kamu) ===================== */
+/* ============= TESTIMONIALS ===================== */
 const TESTIMONIALS = [
-  {name:'Haris', role:'-', avatar:'inprogres.jpeg', rating:5, text:'||'},
-  {name:'Wanda', role:'-', avatar:'inprogres.jpeg', rating:5, text:'||'},
+  {name:'Sadam', role:'-', avatar:'inprogres.jpeg', rating:4, text:'Nice'},
+  {name:'Wanda', role:'-', avatar:'inprogres.jpeg', rating:4, text:'||'},
   {name:'Chiki', role:'-', avatar:'https://i.pravatar.cc/80?img=51', rating:4, text:'||'}
 ];
 function renderTestimonials(){
@@ -485,7 +484,7 @@ function renderTestimonials(){
 }
 renderTestimonials();
 
-/* ===================== RENDER PRODUCTS ===================== */
+/* ======== RENDER PRODUCTS ===================== */
 const grid = document.getElementById('productGrid');
 function renderProducts(cat='all'){
   grid.innerHTML = '';
@@ -522,7 +521,7 @@ document.getElementById('tabs').addEventListener('click', e=>{
   renderProducts(btn.dataset.cat);
 });
 
-/* ===================== TOAST ===================== */
+/* ========= TOAST ===================== */
 function toast(msg, icon='fa-circle-check'){
   const wrap = document.getElementById('toastWrap');
   const t = document.createElement('div');
@@ -532,7 +531,7 @@ function toast(msg, icon='fa-circle-check'){
   setTimeout(()=>t.remove(), 2800);
 }
 
-/* ===================== CART ===================== */
+/* ===============CART ===================== */
 let cart = [];
 function addToCart(id, qty=1){
   const p = PRODUCTS.find(x=>x.id===id);
@@ -590,7 +589,7 @@ document.getElementById('checkoutBtn').addEventListener('click', ()=>{
   setTimeout(()=> window.open(`https://wa.me/6282125017327?text=${text}`, '_blank'), 900);
 });
 
-/* ===================== MODALS / DRAWERS ===================== */
+/* ==========MODALS / DRAWERS ===================== */
 const overlay = document.getElementById('overlay');
 const sideMenu = document.getElementById('sideMenu');
 const cartDrawer = document.getElementById('cartDrawer');
