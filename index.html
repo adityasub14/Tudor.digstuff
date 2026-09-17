@@ -336,7 +336,7 @@
   <section class="profile">
     <img class="avatar" src="fotoig.jpeg" alt="avatar">
     <h1>@adityasub14 <i class="fa-solid fa-circle-check"></i></h1>
-    <p>Link & Product — Social Media Tools
+    <p>ASST.DESIGN — Social Media Tools
 </p>
     <div class="socials">
       <a class="social-btn" href="https://www.instagram.com/adityasub14?stkn=MW5tMGc0Z2h2NjZpYg==" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
@@ -344,7 +344,7 @@
   </section>
 
   <div class="cta-list">
-    <div class="cta" onclick="openLink('https://wa.me/6282125017327','Kerja Sama')">
+    <div class="cta" onclick="openLink('https://wa.me/6282125017327','work')">
       <div class="ico"><i class="fa-solid fa-handshake"></i></div>
       <span class="txt">Kerja Sama/Collab</span>
       <i class="fa-solid fa-chevron-right chev"></i>
@@ -358,6 +358,11 @@
       <div class="ico"><i class="fa-solid fa-handshake"></i></div>
       <span class="txt">Cek Non-Followback akun ig</span>
       <i class="fa-solid fa-chevron-right chev"></i>
+    </div>
+    <div class="cta" onclick="openLink('https://drive.google.com/file/d/1ogy3rBEhRSUYWjQpr_nhjNh6K9kv_2Zk/view?usp=sharing','Create/custom Web')">
+      <div class="ico"><i class="fa-solid fa-globe"></i></div>
+      <span class="txt">Create/custom Web Undangan formal/nonformal</span>
+      <i class="fa-solid fa-chevron-right chev"></i> 
     </div>
 
   </div>
@@ -453,9 +458,9 @@
 <script>
 /* =========== DATA ===================== */
 const PRODUCTS = [
-  {id:4,cat:'Product',title:'Cek Non-Followback akun ig',price:10000,img:'unfollow.jpeg',desc:'Menggunakan File JSON yang di import dari akunmu '},
-  {id:13,cat:'Product',title:'Deteksi keamanan akun Ig',price:123,img:'ceh.jpeg',desc:'Deteksi Keamanan ID dan akun'},
-  {id:14,cat:'bundle',title:'On Progress',price:500,img:'inprogres.jpeg',desc:'Available end of sept'}
+  {id:4,cat:'List',title:'Cek Non-Followback akun ig',price:10000,img:'unfollow.jpeg',desc:'Menggunakan File JSON yang di import dari akunmu '},
+  {id:13,cat:'Link',title:'Deteksi keamanan akun Ig',price:123,img:'ceh.jpeg',desc:'Deteksi Keamanan akun IG'},
+  {id:14,cat:'Product',title:'Create/custom Web Undangan acara formal dan selebrasi',price:500,img:'warkat.jpg',desc:'Meeting invitation,birthday invitation etc'}
 ];
 
 const fmt = n => n===0 ? 'Gratis' : 'Rp ' + n.toLocaleString('id-ID');
@@ -463,8 +468,8 @@ const fmt = n => n===0 ? 'Gratis' : 'Rp ' + n.toLocaleString('id-ID');
 /* ============= TESTIMONIALS ===================== */
 const TESTIMONIALS = [
   {name:'Sadam', role:'-', avatar:'inprogres.jpeg', rating:4, text:'Nice'},
-  {name:'Wanda', role:'-', avatar:'inprogres.jpeg', rating:4, text:'||'},
-  {name:'Chiki', role:'-', avatar:'https://i.pravatar.cc/80?img=51', rating:4, text:'||'}
+  {name:'mae', role:'-', avatar:'inprogres.jpeg', rating:4, text:'Mntp'},
+  {name:'saras', role:'-', avatar:'inprogres.jpeg', rating:4, text:'Good'}
 ];
 function renderTestimonials(){
   const el = document.getElementById('testiScroll');
