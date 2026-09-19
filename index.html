@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TUDOR — Produk & Link</title>
+<title>TUDOR - Produk & Link</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -87,7 +87,7 @@
     display:flex;align-items:center;justify-content:center;font-size:16px;
     transition:.25s;
   }
-  .social-btn:hover{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#0b0f2b;transform:translateY(-3px) rotate(-4deg);}
+  .social-btn:hover{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#656773;transform:translateY(-3px) rotate(-4deg);}
 
   /* ===== CTA links ===== */
   .cta-list{display:flex;flex-direction:column;gap:10px;margin:22px 0;}
@@ -127,7 +127,7 @@
     background:var(--card);border:1px solid var(--card-border);color:var(--muted);
     transition:.2s;white-space:nowrap;
   }
-  .tab.active{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#0b0f2b;border-color:transparent;}
+  .tab.active{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#999aa0;border-color:transparent;}
 
   /* ===== Products grid ===== */
   .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
@@ -139,7 +139,7 @@
   .card .thumb{position:relative;width:100%;padding-top:75%;overflow:hidden;background:#1b1650;}
   .card .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
   .cat-badge{
-    position:absolute;top:8px;left:8px;background:rgba(11,15,43,0.75);
+    position:absolute;top:8px;left:8px;background:rgba(156, 158, 170, 0.75);
     font-size:9.5px;padding:3px 8px;border-radius:20px;color:var(--accent);font-weight:700;
     border:1px solid rgba(34,224,200,0.4);
   }
@@ -156,7 +156,7 @@
     margin-top:6px;padding:7px 0;border-radius:9px;border:1px solid var(--card-border);
     background:transparent;color:var(--muted);font-size:11.5px;font-weight:600;transition:.2s;
   }
-  .card .btn-detail:hover{background:var(--accent);color:#0b0f2b;border-color:transparent;}
+  .card .btn-detail:hover{background:var(--accent);color:#9d9fb2;border-color:transparent;}
 
   /* ===== Floating report ===== */
   .fab-report{
@@ -180,7 +180,7 @@
 
   .side-menu{
     position:fixed;top:0;left:0;height:100%;width:78%;max-width:300px;z-index:70;
-    background:linear-gradient(180deg,#161049,#0b0f2b);
+    background:linear-gradient(180deg,#0e0d17,#7a7b85);
     border-right:1px solid var(--card-border);
     transform:translateX(-100%);transition:.35s cubic-bezier(.4,0,.2,1);
     padding:24px 20px;display:flex;flex-direction:column;gap:6px;
@@ -198,7 +198,7 @@
 
   .cart-drawer{
     position:fixed;top:0;right:0;height:100%;width:88%;max-width:340px;z-index:70;
-    background:linear-gradient(180deg,#161049,#0b0f2b);
+    background:linear-gradient(180deg,#767882,#0c0e1c);
     border-left:1px solid var(--card-border);
     transform:translateX(100%);transition:.35s cubic-bezier(.4,0,.2,1);
     display:flex;flex-direction:column;
@@ -222,7 +222,7 @@
   .cart-total span:last-child{color:var(--accent);}
   .checkout-btn{
     width:100%;padding:13px;border:none;border-radius:12px;font-weight:700;font-size:14px;
-    background:linear-gradient(135deg,var(--accent),var(--accent2));color:#0b0f2b;transition:.2s;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));color:#0b0c1d;transition:.2s;
   }
   .checkout-btn:hover{filter:brightness(1.1);}
   .checkout-btn:active{transform:scale(0.97);}
@@ -233,7 +233,7 @@
   }
   .modal.show{opacity:1;visibility:visible;}
   .modal-box{
-    background:linear-gradient(180deg,#1b1650,#0b0f2b);border:1px solid var(--card-border);
+    background:linear-gradient(180deg,#3f3e4d,#0b0f2b);border:1px solid var(--card-border);
     border-radius:20px;width:100%;max-width:400px;max-height:88vh;overflow-y:auto;
     transform:translateY(20px) scale(0.97);transition:.3s;position:relative;
   }
@@ -336,7 +336,7 @@
   <section class="profile">
     <img class="avatar" src="fotoig.jpeg" alt="avatar">
     <h1>@adityasub14 <i class="fa-solid fa-circle-check"></i></h1>
-    <p>UR ASST Design and Helper — Social Media Tool
+    <p>UR ASST Design and Helper - Social Media Tool
 </p>
     <div class="socials">
       <a class="social-btn" href="https://www.instagram.com/adityasub14?stkn=MW5tMGc0Z2h2NjZpYg==" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
@@ -450,7 +450,7 @@
 <div class="toast-wrap" id="toastWrap"></div>
 
 <script>
-/* =========== DATA ===================== */
+/* =========== DATA =========== */
 const PRODUCTS = [
   {id:4,cat:'List',title:'Cek Non-Followback akun ig',price:10000,img:'unfollow.jpeg',desc:'Menggunakan File JSON yang di import dari akunmu '},
   {id:13,cat:'Product',title:'Deteksi keamanan akun Ig',price:123,img:'ceh.jpeg',desc:'Deteksi Keamanan akun IG'},
@@ -501,7 +501,7 @@ function renderProducts(cat='all'){
       <div class="info">
         <h3>${p.title}</h3>
         <div class="price">${p.free? 'GRATIS' : fmt(p.price)}</div>
-        <button class="btn-detail" onclick="openProductModal(${p.id})">Lihat Detail</button>
+        <button class="btn-detail" onclick="openProductModal(${p.id})">Detail</button>
       </div>`;
     grid.appendChild(card);
   });
