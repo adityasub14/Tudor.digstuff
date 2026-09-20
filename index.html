@@ -127,7 +127,7 @@
     background:var(--card);border:1px solid var(--card-border);color:var(--muted);
     transition:.2s;white-space:nowrap;
   }
-  .tab.active{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#999aa0;border-color:transparent;}
+  .tab.active{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#030304;border-color:transparent;}
 
   /* ===== Products grid ===== */
   .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
@@ -136,8 +136,8 @@
     overflow:hidden;display:flex;flex-direction:column;transition:.25s;
   }
   .card:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 12px 24px rgba(0,0,0,0.35);}
-  .card .thumb{position:relative;width:100%;padding-top:75%;overflow:hidden;background:#1b1650;}
-  .card .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .card .thumb{position:relative;width:100%;padding-top:115%;overflow:hidden;background:#1b1650;}
+  .card .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;}
   .cat-badge{
     position:absolute;top:8px;left:8px;background:rgba(156, 158, 170, 0.75);
     font-size:9.5px;padding:3px 8px;border-radius:20px;color:var(--accent);font-weight:700;
@@ -336,7 +336,7 @@
   <section class="profile">
     <img class="avatar" src="fotoig.jpeg" alt="avatar">
     <h1>@adityasub14 <i class="fa-solid fa-circle-check"></i></h1>
-    <p>UR ASST Design and Helper - Social Media Tool
+    <p>UR ASST Design and Helper | Social Media Tool
 </p>
     <div class="socials">
       <a class="social-btn" href="https://www.instagram.com/adityasub14?stkn=MW5tMGc0Z2h2NjZpYg==" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
@@ -452,9 +452,9 @@
 <script>
 /* =========== DATA =========== */
 const PRODUCTS = [
-  {id:4,cat:'List',title:'Cek Non-Followback akun ig',price:10000,img:'unfollow.jpeg',desc:'Menggunakan File JSON yang di import dari akunmu '},
-  {id:13,cat:'Product',title:'Deteksi keamanan akun Ig',price:123,img:'ceh.jpeg',desc:'Deteksi Keamanan akun IG'},
-  {id:14,cat:'Link',title:'Fishing mania',price:250000,img:'pish.jpeg',desc:'Invitation'}
+  {id:4,cat:'Product',title:'Cek Non-Followback akun ig',price:10000,img:'Cekunfoll.jpeg',desc:'Menggunakan File JSON yang di import dari akunmu '},
+  {id:13,cat:'Product',title:'Chat Bot CS with OpenAI',price:200000,img:'chatbotimg.jpeg',desc:'Chat Bot CS Online Untuk Kebutuhan Bisnis dan Komunitasmu. Concern with GPT, gemini etc, with N8N'},
+  {id:14,cat:'Link',title:'Fishing mania',price:250000,img:'ceh.jpeg',desc:'Mencari Lokasi Realtime,"For Spouse Only"'}
 ];
 
 const fmt = n => n===0 ? 'Gratis' : 'Rp ' + n.toLocaleString('id-ID');
