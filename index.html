@@ -239,7 +239,7 @@
   }
   .modal.show .modal-box{transform:translateY(0) scale(1);}
   .modal-close{position:absolute;top:12px;right:12px;z-index:5;}
-  .modal-img{width:100%;height:190px;object-fit:cover;}
+  .modal-img{width:100%;height:350px;object-fit:countain;}
   .modal-body{padding:18px 20px 22px;}
   .modal-body h2{font-family:'Sora',sans-serif;font-size:17px;margin:0 0 6px;}
   .modal-cat{display:inline-block;font-size:10.5px;color:var(--accent);border:1px solid rgba(34,224,200,0.4);padding:3px 10px;border-radius:20px;margin-bottom:10px;}
@@ -252,7 +252,7 @@
   }
   .btn-outline{background:transparent;border:1.5px solid var(--card-border);color:var(--text);}
   .btn-outline:hover{border-color:var(--accent);color:var(--accent);}
-  .btn-solid{background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;color:#0b0f2b;}
+  .btn-solid{background:linear-gradient(135deg,#4e524e, var(--accent2));border:none;color:#dfe0e3;}
   .btn-solid:hover{filter:brightness(1.1);}
 
   .search-box{padding:18px;}
@@ -374,7 +374,7 @@
   <div class="testi-scroll" id="testiScroll"></div>
 
   <footer>
-    All Right Reserved | Adityasub14 © 2026
+    © 2026 All Right Reserved | Tudor Dig.Stuff
   </footer>
 </div>
 
@@ -453,8 +453,8 @@
 /* =========== DATA =========== */
 const PRODUCTS = [
   {id:4,cat:'Product',title:'Cek Non-Followback akun ig',price:10000,img:'Cekunfoll.jpeg',desc:'Menggunakan File JSON yang di import dari akunmu '},
-  {id:13,cat:'Product',title:'Chat Bot CS with OpenAI',price:200000,img:'chatbotimg.jpeg',desc:'Chat Bot CS Online Untuk Kebutuhan Bisnis dan Komunitasmu. Concern with GPT, gemini etc, with N8N'},
-  {id:14,cat:'Link',title:'Fishing mania',price:250000,img:'ceh.jpeg',desc:'Mencari Lokasi Realtime,"For Spouse Only"'}
+  {id:13,cat:'Product',title:'Membuat Chat Bot CS with OpenAI',price:200000,img:'chatbotimg.jpeg',desc:'AI sebagai CS Online Untuk Kebutuhan Bisnis dan Komunitasmu. Concern with GPT, gemini etc, 1 on 1 or Via Zoom'},
+  {id:14,cat:'Link',title:'Fishing mania',price:250000,img:'ceh.jpeg',desc:'Mencari Lokasi Device , "For Spouse Only"'}
 ];
 
 const fmt = n => n===0 ? 'Gratis' : 'Rp ' + n.toLocaleString('id-ID');
@@ -655,7 +655,7 @@ function openProductModal(id){
       <div class="modal-price">${p.free? 'GRATIS' : fmt(p.price)}</div>
       <div class="modal-actions">
         <button class="btn-outline" onclick="addToCart(${p.id});"><i class="fa-solid fa-cart-plus"></i> Keranjang</button>
-        <button class="btn-solid" onclick="buyNow(${p.id})"><i class="fa-brands fa-whatsapp"></i> Beli Sekarang</button>
+        <button class="btn-solid" onclick="buyNow(${p.id})"><i class="fa-brands fa-whatsapp"></i> Buy</button>
       </div>
     </div>
   `;
