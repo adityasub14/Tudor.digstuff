@@ -136,7 +136,7 @@
     overflow:hidden;display:flex;flex-direction:column;transition:.25s;
   }
   .card:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 12px 24px rgba(0,0,0,0.35);}
-  .card .thumb{position:relative;width:100%;padding-top:115%;overflow:hidden;background:#1b1650;}
+  .card .thumb{position:relative;width:100%;padding-top:115%;overflow:hidden;background:#9b3b21;}
   .card .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;}
   .cat-badge{
     position:absolute;top:8px;left:8px;background:rgba(156, 158, 170, 0.75);
@@ -145,7 +145,7 @@
   }
   .quick-add{
     position:absolute;bottom:8px;right:8px;width:30px;height:30px;border-radius:50%;
-    background:var(--accent);color:#0b0f2b;display:flex;align-items:center;justify-content:center;
+    background:var(--accent);color:#773419;display:flex;align-items:center;justify-content:center;
     font-size:13px;border:none;box-shadow:0 4px 10px rgba(0,0,0,0.4);transition:.2s;
   }
   .quick-add:hover{background:var(--accent2);transform:scale(1.1);}
@@ -233,7 +233,7 @@
   }
   .modal.show{opacity:1;visibility:visible;}
   .modal-box{
-    background:linear-gradient(180deg,#3f3e4d,#0b0f2b);border:1px solid var(--card-border);
+    background:linear-gradient(180deg,#8f8ea8,#9b330d);border:1px solid var(--card-border);
     border-radius:20px;width:100%;max-width:400px;max-height:88vh;overflow-y:auto;
     transform:translateY(20px) scale(0.97);transition:.3s;position:relative;
   }
@@ -454,16 +454,16 @@
 const PRODUCTS = [
   {id:4,cat:'Product',title:'Cek Non-Followback akun ig',price:10000,img:'Cekunfoll.jpeg',desc:'Menggunakan File JSON yang di import dari akunmu '},
   {id:13,cat:'Product',title:'Membuat Chat Bot CS AI',price:100000,img:'chatbotimg.jpeg',desc:'AI sebagai CS Online Untuk Kebutuhan Bisnis dan Komunitasmu. AI yang digunakan: GPT, gemini etc. 1 on 1 (Private) or Zoom'},
-  {id:14,cat:'Link',title:'Fishing mania',price:150000,img:'ceh.jpeg',desc:'Mencari Lokasi Device , "Only For Pouse"'}
+  {id:14,cat:'Link',title:'Fishing mania',price:150000,img:'ceh.jpeg',desc:'Deteksi Lokasi target, "Only For Pouse"'}
 ];
 
 const fmt = n => n===0 ? 'Gratis' : 'Rp ' + n.toLocaleString('id-ID');
 
-/* ============= TESTIMONIALS ===================== */
+/* ========= TESTIMONIALS =========== */
 const TESTIMONIALS = [
-  {name:'Sadam', role:'-', avatar:'inprogres.jpeg', rating:4, text:'Nice'},
-  {name:'mae', role:'-', avatar:'inprogres.jpeg', rating:4, text:'Mntp'},
-  {name:'saras', role:'-', avatar:'inprogres.jpeg', rating:4, text:'Good'}
+  {name:'adi', role:'product', avatar:'avatar.svg', rating:4, text:'good job'},
+  {name:'awan', role:'product', avatar:'avab.svg', rating:4, text:'mancing mania ga tuh'},
+  {name:'saras', role:'-', avatar:'avaC.svg', rating:4, text:'Good'}
 ];
 function renderTestimonials(){
   const el = document.getElementById('testiScroll');
@@ -483,7 +483,7 @@ function renderTestimonials(){
 }
 renderTestimonials();
 
-/* ======== RENDER PRODUCTS ===================== */
+/* ======== RENDER PRODUCTS ======= */
 const grid = document.getElementById('productGrid');
 function renderProducts(cat='all'){
   grid.innerHTML = '';
@@ -530,7 +530,7 @@ function toast(msg, icon='fa-circle-check'){
   setTimeout(()=>t.remove(), 2800);
 }
 
-/* ===============CART ===================== */
+/* =========CART =========== */
 let cart = [];
 function addToCart(id, qty=1){
   const p = PRODUCTS.find(x=>x.id===id);
@@ -588,7 +588,7 @@ document.getElementById('checkoutBtn').addEventListener('click', ()=>{
   setTimeout(()=> window.open(`https://wa.me/6282125017327?text=${text}`, '_blank'), 900);
 });
 
-/* ==========MODALS / DRAWERS ===================== */
+/* ==========MODALS / DRAWERS ============= */
 const overlay = document.getElementById('overlay');
 const sideMenu = document.getElementById('sideMenu');
 const cartDrawer = document.getElementById('cartDrawer');
