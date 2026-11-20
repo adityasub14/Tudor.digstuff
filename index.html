@@ -38,7 +38,6 @@
 
   .wrap{max-width:480px;margin:0 auto;position:relative;padding:0 16px;}
 
-  /* ===== Header ===== */
   header.top{
     position:sticky;top:0;z-index:50;
     backdrop-filter:blur(14px);
@@ -70,7 +69,6 @@
     padding:0 3px;
   }
 
-  /* ===== Profile ===== */
   .profile{text-align:center;padding:28px 0 10px;}
   .avatar{
     width:92px;height:92px;border-radius:50%;object-fit:cover;
@@ -89,7 +87,6 @@
   }
   .social-btn:hover{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#656773;transform:translateY(-3px) rotate(-4deg);}
 
-  /* ===== CTA links ===== */
   .cta-list{display:flex;flex-direction:column;gap:10px;margin:22px 0;}
   .cta{
     display:flex;align-items:center;gap:12px;padding:13px 16px;
@@ -112,14 +109,12 @@
   .cta span.txt{flex:1;font-size:13.5px;font-weight:600;text-align:left;}
   .cta i.chev{color:var(--muted);font-size:12px;}
 
-  /* ===== Section titles ===== */
   .sec-title{
     font-family:'Sora',sans-serif;font-size:15px;font-weight:700;margin:26px 0 12px 2px;
     display:flex;align-items:center;gap:8px;
   }
   .sec-title i{color:var(--accent);}
 
-  /* ===== Tabs ===== */
   .tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:14px;scrollbar-width:none;}
   .tabs::-webkit-scrollbar{display:none;}
   .tab{
@@ -129,7 +124,6 @@
   }
   .tab.active{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#030304;border-color:transparent;}
 
-  /* ===== Products grid ===== */
   .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
   .card{
     background:var(--card);border:1px solid var(--card-border);border-radius:16px;
@@ -158,7 +152,6 @@
   }
   .card .btn-detail:hover{background:var(--accent);color:#9d9fb2;border-color:transparent;}
 
-  /* ===== Floating report ===== */
   .fab-report{
     position:fixed;bottom:18px;left:18px;z-index:40;
     display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:30px;
@@ -171,7 +164,6 @@
   footer{text-align:center;padding:30px 0 10px;color:var(--muted);font-size:11.5px;}
   footer .heart{color:var(--pink);}
 
-  /* ===== Overlay & Panels ===== */
   .overlay{
     position:fixed;inset:0;background:rgba(0,0,0,0.55);backdrop-filter:blur(3px);
     z-index:60;opacity:0;visibility:hidden;transition:.3s;
@@ -291,7 +283,6 @@
     .grid{grid-template-columns:repeat(3,1fr);}
   }
 
-  /* ===== Testimonials ===== */
   .testi-scroll{
     display:flex;gap:12px;overflow-x:auto;padding:2px 2px 10px;
     scroll-snap-type:x mandatory;scrollbar-width:none;
@@ -380,10 +371,8 @@
 
 <button class="fab-report" id="reportBtn"><i class="fa-solid fa-flag"></i> Report</button>
 
-<!-- Overlay -->
 <div class="overlay" id="overlay"></div>
 
-<!-- Side menu -->
 <nav class="side-menu" id="sideMenu">
   <button class="icon-btn close-btn" id="closeMenu"><i class="fa-solid fa-xmark"></i></button>
   <h2>Menu</h2>
@@ -392,7 +381,6 @@
   <a href="#" onclick="openReport()"><i class="fa-solid fa-flag"></i> Laporkan Masalah</a>
 </nav>
 
-<!-- Cart Drawer -->
 <aside class="cart-drawer" id="cartDrawer">
   <div class="cart-head">
     <h2>Keranjang</h2>
@@ -405,12 +393,10 @@
   </div>
 </aside>
 
-<!-- Product Modal -->
 <div class="modal" id="productModal">
   <div class="modal-box" id="productModalBox"></div>
 </div>
 
-<!-- Search Modal -->
 <div class="modal" id="searchModal">
   <div class="modal-box">
     <button class="icon-btn modal-close" id="closeSearch"><i class="fa-solid fa-xmark"></i></button>
@@ -424,7 +410,6 @@
   </div>
 </div>
 
-<!-- Report Modal -->
 <div class="modal" id="reportModal">
   <div class="modal-box">
     <button class="icon-btn modal-close" id="closeReport"><i class="fa-solid fa-xmark"></i></button>
@@ -450,7 +435,6 @@
 <div class="toast-wrap" id="toastWrap"></div>
 
 <script>
-/* ==== DATA ==== */
 const PRODUCTS = [
   {id:4,cat:'Product',title:'Cek Non-Followback akun ig',price:10000,img:'Cekunfoll.jpeg',desc:'Menggunakan File JSON yang di import dari akunmu '},
   {id:13,cat:'Product',title:'Membuat Chat Bot CS AI',price:99000,img:'chatbotimg.jpeg',desc:'AI sebagai CS Online Untuk Kebutuhan Bisnis dan Komunitasmu. AI yang digunakan: GPT, gemini etc. 1 on 1 (Private) or Zoom'},
@@ -460,7 +444,6 @@ const PRODUCTS = [
 
 const fmt = n => n===0 ? 'Gratis' : 'Rp ' + n.toLocaleString('id-ID');
 
-/* ==== TESTIMONIALS ==== */
 const TESTIMONIALS = [
   {name:'', role:'product', avatar:'avatar.svg', rating:4, text:'good job'},
   {name:'awan', role:'product', avatar:'avaB.svg', rating:4, text:'mancing mania ga tuh'},
@@ -484,7 +467,6 @@ function renderTestimonials(){
 }
 renderTestimonials();
 
-/* ==== RENDER PRODUCTS ==== */
 const grid = document.getElementById('productGrid');
 function renderProducts(cat='all'){
   grid.innerHTML = '';
@@ -512,7 +494,6 @@ function catLabel(c){
 }
 renderProducts();
 
-/* Tabs */
 document.getElementById('tabs').addEventListener('click', e=>{
   const btn = e.target.closest('.tab');
   if(!btn) return;
@@ -521,7 +502,6 @@ document.getElementById('tabs').addEventListener('click', e=>{
   renderProducts(btn.dataset.cat);
 });
 
-/* === TOAST === */
 function toast(msg, icon='fa-circle-check'){
   const wrap = document.getElementById('toastWrap');
   const t = document.createElement('div');
@@ -531,7 +511,6 @@ function toast(msg, icon='fa-circle-check'){
   setTimeout(()=>t.remove(), 2800);
 }
 
-/* ===CART === */
 let cart = [];
 function addToCart(id, qty=1){
   const p = PRODUCTS.find(x=>x.id===id);
@@ -589,7 +568,6 @@ document.getElementById('checkoutBtn').addEventListener('click', ()=>{
   setTimeout(()=> window.open(`https://wa.me/6282125017327?text=${text}`, '_blank'), 900);
 });
 
-/* ===MODALS / DRAWERS === */
 const overlay = document.getElementById('overlay');
 const sideMenu = document.getElementById('sideMenu');
 const cartDrawer = document.getElementById('cartDrawer');
@@ -610,15 +588,12 @@ function closeAllPanels(){
 }
 overlay.addEventListener('click', closeAllPanels);
 
-/* Side menu */
 document.getElementById('menuBtn').addEventListener('click', ()=>{ closeAllPanels(); sideMenu.classList.add('show'); showOverlay(); });
 document.getElementById('closeMenu').addEventListener('click', closeAllPanels);
 
-/* Cart drawer */
 document.getElementById('cartBtn').addEventListener('click', ()=>{ closeAllPanels(); cartDrawer.classList.add('show'); showOverlay(); });
 document.getElementById('closeCart').addEventListener('click', closeAllPanels);
 
-/* Search modal */
 document.getElementById('searchBtn').addEventListener('click', ()=>{
   closeAllPanels(); searchModal.classList.add('show'); showOverlay();
   document.getElementById('searchInput').value='';
@@ -643,7 +618,6 @@ function renderSearch(q){
   `).join('');
 }
 
-/* Product modal */
 function openProductModal(id){
   const p = PRODUCTS.find(x=>x.id===id);
   document.getElementById('productModalBox').innerHTML = `
@@ -671,7 +645,6 @@ function buyNow(id){
   setTimeout(()=> window.open(`https://wa.me/6282125017327?text=${text}`, '_blank'), 800);
 }
 
-/* Report modal */
 function openReport(){ closeAllPanels(); reportModal.classList.add('show'); showOverlay(); }
 document.getElementById('reportBtn').addEventListener('click', openReport);
 document.getElementById('closeReport').addEventListener('click', closeAllPanels);
@@ -682,7 +655,6 @@ document.getElementById('reportForm').addEventListener('submit', e=>{
   e.target.reset();
 });
 
-/* Generic CTA link handler */
 function openLink(url, label){
   if(url && url.startsWith('http')){
     toast(`Membuka ${label}...`, 'fa-arrow-up-right-from-square');
@@ -697,7 +669,6 @@ function scrollToProducts(){
   document.getElementById('tabs').scrollIntoView({behavior:'smooth', block:'center'});
 }
 
-/* Close modals with ESC */
 document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeAllPanels(); });
 </script>
 </body>
