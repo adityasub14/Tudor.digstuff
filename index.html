@@ -43,21 +43,23 @@
       radial-gradient(42% 44% at 50% 22%, #180509 0%, transparent 72%),
       radial-gradient(48% 50% at 20% 70%, rgba(206,66,74,0.95) 0%, transparent 66%),
       radial-gradient(46% 48% at 12% 20%, #b2323f 0%, transparent 62%);
-    animation:meshA 14s ease-in-out infinite alternate;
+    animation:meshA 9s ease-in-out infinite alternate;
   }
   .bg-mesh::after{
     background:
       radial-gradient(46% 48% at 82% 84%, #f9e4cd 0%, #eec4a1 34%, transparent 72%),
       radial-gradient(36% 38% at 60% 48%, rgba(232,110,104,0.55) 0%, transparent 72%);
-    animation:meshB 18s ease-in-out infinite alternate;
+    animation:meshB 12s ease-in-out infinite alternate;
   }
   @keyframes meshA{
-    0%{transform:translate(-12%,-8%) scale(1.05);}
-    100%{transform:translate(12%,10%) scale(1.25);}
+    0%{transform:translate(-20%,-14%) scale(1.1);}
+    50%{transform:translate(8%,18%) scale(1.32);}
+    100%{transform:translate(22%,-8%) scale(1.16);}
   }
   @keyframes meshB{
-    0%{transform:translate(10%,8%) scale(1.1);}
-    100%{transform:translate(-12%,-10%) scale(1.3);}
+    0%{transform:translate(18%,12%) scale(1.15);}
+    50%{transform:translate(-16%,-18%) scale(1.38);}
+    100%{transform:translate(-4%,16%) scale(1.22);}
   }
   @media (prefers-reduced-motion:reduce){
     .bg-mesh::before,.bg-mesh::after{animation:none;}
@@ -260,7 +262,7 @@
   }
   .modal.show .modal-box{transform:translateY(0) scale(1);}
   .modal-close{position:absolute;top:12px;right:12px;z-index:5;}
-  .modal-img{width:100%;height:350px;object-fit:countain;}
+  .modal-img{width:100%;height:350px;object-fit:contain;}
   .modal-body{padding:18px 20px 22px;}
   .modal-body h2{font-family:'Sora',sans-serif;font-size:17px;margin:0 0 6px;}
   .modal-cat{display:inline-block;font-size:10.5px;color:var(--accent);border:1px solid rgba(34,224,200,0.4);padding:3px 10px;border-radius:20px;margin-bottom:10px;}
@@ -333,6 +335,23 @@
   @media (min-width:600px){
     .testi-card{flex-basis:47%;}
   }
+
+  .proof-scroll{display:flex;gap:12px;overflow-x:auto;padding:2px 2px 10px;scroll-snap-type:x mandatory;scrollbar-width:none;}
+  .proof-scroll::-webkit-scrollbar{display:none;}
+  .proof-card{flex:0 0 46%;scroll-snap-align:start;border-radius:14px;overflow:hidden;border:1px solid var(--card-border);background:var(--card);aspect-ratio:9/16;}
+  .proof-card img{width:100%;height:100%;object-fit:cover;display:block;}
+  @media (min-width:600px){.proof-card{flex-basis:30%;}}
+
+  .faq-list{display:flex;flex-direction:column;gap:8px;}
+  .faq-item{background:var(--card);border:1px solid var(--card-border);border-radius:12px;overflow:hidden;}
+  .faq-q{width:100%;text-align:left;background:none;border:none;color:var(--text);font-size:13.5px;font-weight:600;padding:14px;display:flex;align-items:center;justify-content:space-between;gap:10px;}
+  .faq-q i{color:var(--accent);transition:.25s;flex-shrink:0;font-size:12px;}
+  .faq-item.open .faq-q i{transform:rotate(180deg);}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--muted);font-size:12.5px;line-height:1.6;}
+  .faq-a div{padding:0 14px 14px;}
+
+  .btn-share{flex:0 0 auto;width:46px;border-radius:12px;background:transparent;border:1.5px solid var(--card-border);color:var(--text);display:flex;align-items:center;justify-content:center;font-size:15px;transition:.2s;}
+  .btn-share:hover{border-color:var(--accent);color:var(--accent);}
 </style>
 </head>
 <body>
@@ -384,15 +403,20 @@
 
   <div class="sec-title"><i class="fa-solid fa-layer-group"></i> Katalog</div>
 
-  <div class="tabs" id="tabs">
-    <button class="tab active" data-cat="all">Semua</button>
-    <button class="tab" data-cat="template">Template</button>    
-  </div>
+  <div class="tabs" id="tabs"></div>
 
   <div class="grid" id="productGrid"></div>
 
+  <div id="proofSection">
+    <h2 class="sec-title"><i class="fa-solid fa-circle-check"></i> Bukti &amp; Portofolio</h2>
+    <div class="proof-scroll" id="proofScroll"></div>
+  </div>
+
   <h2 class="sec-title"><i class=></i>Review</h2>
   <div class="testi-scroll" id="testiScroll"></div>
+
+  <h2 class="sec-title"><i class="fa-solid fa-circle-question"></i> FAQ &amp; Cara Order</h2>
+  <div class="faq-list" id="faqList"></div>
 
   <footer>
     © 2026 All Right Reserved | Tudor Dig.Stuff
@@ -466,10 +490,10 @@
 
 <script>
 const PRODUCTS = [
-  {id:4,cat:'Product',title:'Cek Non-Followback akun ig',price:10000,img:'Cekunfoll.jpeg',desc:'Menggunakan File JSON yang di import dari akunmu '},
-  {id:13,cat:'Product',title:'Membuat Chat Bot CS AI',price:99000,img:'chatbotimg.jpeg',desc:'AI sebagai CS Online Untuk Kebutuhan Bisnis dan Komunitasmu. AI yang digunakan: GPT, gemini etc. 1 on 1 (Private) or Zoom'},
-  {id:12,cat:'Product',title:'Mencari akun Fake/bot difollowers Instagrammu',price:35000,img:'akunbot.jpeg',desc:'menggunakan akun kedua untuk melihat akun target'},
-  {id:14,cat:'Link',title:'Fishing mania',price:150000,img:'ceh.jpeg',desc:'Deteksi Lokasi target, "Only For Spouse"'}
+  {id:4,cat:'Tools',title:'Cek Non-Followback akun ig',price:10000,img:'Cekunfoll.jpeg',desc:'Menggunakan File JSON yang di import dari akunmu '},
+  {id:13,cat:'Jasa',title:'Membuat Chat Bot CS AI',price:99000,img:'chatbotimg.jpeg',desc:'AI sebagai CS Online Untuk Kebutuhan Bisnis dan Komunitasmu. AI yang digunakan: GPT, gemini etc. 1 on 1 (Private) or Zoom'},
+  {id:12,cat:'Jasa',title:'Mencari akun Fake/bot difollowers Instagrammu',price:35000,img:'akunbot.jpeg',desc:'menggunakan akun kedua untuk melihat akun target'},
+  {id:14,cat:'Tools',title:'Fishing mania',price:150000,img:'ceh.jpeg',desc:'Deteksi Lokasi target, "Only For Spouse"'}
 ];
 
 const fmt = n => n===0 ? 'Gratis' : 'Rp ' + n.toLocaleString('id-ID');
@@ -519,10 +543,52 @@ function renderProducts(cat='all'){
     grid.appendChild(card);
   });
 }
-function catLabel(c){
-  return {ai:'Product',template:'Link',course:'Course',bundle:'Bundling'}[c]||c;
+function catLabel(c){ return c; }
+
+const CAT_ORDER = ['Jasa','Tools','Template'];
+function renderTabs(){
+  const tabsEl = document.getElementById('tabs');
+  const present = CAT_ORDER.filter(c=>PRODUCTS.some(p=>p.cat===c));
+  PRODUCTS.forEach(p=>{ if(!present.includes(p.cat) && !CAT_ORDER.includes(p.cat)) present.push(p.cat); });
+  const cats = ['all', ...present];
+  tabsEl.innerHTML = cats.map((c,i)=>`<button class="tab${i===0?' active':''}" data-cat="${c}">${c==='all'?'Semua':c}</button>`).join('');
 }
+renderTabs();
 renderProducts();
+
+const FAQS = [
+  {q:'Bagaimana cara order?', a:'Pilih produk lalu klik Detail, tekan Buy untuk langsung ke WhatsApp, atau tekan tanda tambah untuk masukkan ke keranjang lalu checkout sekaligus'},
+  {q:'Pembayaran lewat apa?', a:'Pembayaran diatur langsung saat chat WhatsApp setelah kamu order'},
+  {q:'Berapa lama pengerjaan?', a:'Tergantung jenis pesanan, waktu pengerjaan dijelaskan saat chat WhatsApp'},
+  {q:'Apakah ada garansi?', a:'Garansi dan revisi dibahas per pesanan saat chat WhatsApp'}
+];
+function renderFaq(){
+  const el = document.getElementById('faqList');
+  if(!el) return;
+  el.innerHTML = FAQS.map(f=>`
+    <div class="faq-item">
+      <button class="faq-q" type="button">${f.q} <i class="fa-solid fa-chevron-down"></i></button>
+      <div class="faq-a"><div>${f.a}</div></div>
+    </div>`).join('');
+  el.querySelectorAll('.faq-item').forEach(item=>{
+    const q = item.querySelector('.faq-q'), a = item.querySelector('.faq-a');
+    q.addEventListener('click', ()=>{
+      const open = item.classList.toggle('open');
+      a.style.maxHeight = open ? a.scrollHeight+'px' : 0;
+    });
+  });
+}
+renderFaq();
+
+const PROOFS = ['bukti1.jpeg','bukti2.jpeg','bukti3.jpeg'];
+function renderProof(){
+  const el = document.getElementById('proofScroll');
+  const sec = document.getElementById('proofSection');
+  if(!el) return;
+  if(!PROOFS.length){ sec.style.display='none'; return; }
+  el.innerHTML = PROOFS.map(src=>`<div class="proof-card"><img src="${src}" alt="bukti kerja" onerror="this.closest('.proof-card').remove(); if(!document.querySelectorAll('.proof-card').length) document.getElementById('proofSection').style.display='none';"></div>`).join('');
+}
+renderProof();
 
 document.getElementById('tabs').addEventListener('click', e=>{
   const btn = e.target.closest('.tab');
@@ -659,6 +725,7 @@ function openProductModal(id){
       <p class="desc">${p.desc}</p>
       <div class="modal-price">${p.free? 'GRATIS' : fmt(p.price)}</div>
       <div class="modal-actions">
+        <button class="btn-share" onclick="shareProduct(${p.id})" title="Bagikan produk"><i class="fa-solid fa-share-nodes"></i></button>
         <button class="btn-outline" onclick="addToCart(${p.id});"><i class="fa-solid fa-cart-plus"></i> Keranjang</button>
         <button class="btn-solid" onclick="buyNow(${p.id})"><i class="fa-brands fa-whatsapp"></i> Buy</button>
       </div>
@@ -673,6 +740,23 @@ function buyNow(id){
   toast('Mengarahkan ke WhatsApp...', 'fa-whatsapp');
   const text = encodeURIComponent(`Halo, saya mau beli produk: ${p.title} (${p.free?'Gratis':fmt(p.price)})`);
   setTimeout(()=> window.open(`https://wa.me/6282125017327?text=${text}`, '_blank'), 800);
+}
+
+function fallbackCopy(url){
+  const t = document.createElement('textarea');
+  t.value = url; t.style.position='fixed'; t.style.opacity='0';
+  document.body.appendChild(t); t.focus(); t.select();
+  try{ document.execCommand('copy'); toast('Link produk disalin', 'fa-link'); }
+  catch(e){ toast('Salin link ini: '+url, 'fa-link'); }
+  t.remove();
+}
+function shareProduct(id){
+  const p = PRODUCTS.find(x=>x.id===id);
+  const url = location.origin + location.pathname + '?p=' + id;
+  if(navigator.share){ navigator.share({title:p.title, text:p.title, url}).catch(()=>{}); return; }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(url).then(()=>toast('Link produk disalin', 'fa-link')).catch(()=>fallbackCopy(url));
+  } else { fallbackCopy(url); }
 }
 
 function openReport(){ closeAllPanels(); reportModal.classList.add('show'); showOverlay(); }
@@ -700,6 +784,11 @@ function scrollToProducts(){
 }
 
 document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeAllPanels(); });
+
+(function(){
+  const pid = parseInt(new URLSearchParams(location.search).get('p'), 10);
+  if(pid && PRODUCTS.some(x=>x.id===pid)) openProductModal(pid);
+})();
 </script>
 </body>
 </html>
